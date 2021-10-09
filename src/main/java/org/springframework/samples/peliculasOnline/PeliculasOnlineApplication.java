@@ -1,14 +1,14 @@
-package org.springframework.samples.petclinic;
+package org.springframework.samples.peliculasOnline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication()
-public class PetclinicApplication {
+public class PeliculasOnlineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PetclinicApplication.class, args);
+		SpringApplication.run(PeliculasOnlineApplication.class, args);
 	}
 
 }
