@@ -18,12 +18,9 @@ public interface ActorRepository extends Repository<Actor, Integer> {
 
 
 	@Query("SELECT DISTINCT actor FROM Actor actor left join fetch actor.films WHERE actor.lastName LIKE :lastName%")
-	public Collection<Actor> findByLastName(@Param("lastName") String lastName);
+	public Collection<Actor> findBySurName(@Param("lastName") String lastName);
 
 
-	/*@Query("SELECT Actor FROM Owner owner left join fetch actor.films WHERE actor.id =:id")
-	public Actor findById(@Param("id") String username);*/
-	
 	Actor findById(int id) throws DataAccessException;	
 
 	List<Actor> findByActorId(Integer actorId);
