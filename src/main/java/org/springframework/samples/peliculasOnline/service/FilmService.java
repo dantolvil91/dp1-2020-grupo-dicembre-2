@@ -1,7 +1,6 @@
 package org.springframework.samples.peliculasOnline.service;
 
 import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.peliculasOnline.model.Film;
@@ -17,11 +16,18 @@ public class FilmService {
 
 	private FilmRepository filmRepository;
 	
+	@Autowired
+	public FilmService(FilmRepository filmRepository) {
+	this.filmRepository = filmRepository;
+	}
+
+	//Encontrar una pel�cula seg�n su tipo
 	@Transactional(readOnly = true)
-	public Collection<Film> findFilmTypes() throws DataAccessException {
-		return filmRepository.findFilmTypes();
+	public Collection<Film> findFilmTypes(String type) throws DataAccessException {
+		return filmRepository.findFilmTypes(type);
 	}
 	
+	//Guardar una pel�cula @Transactional
 	@Transactional
 	public void save(Film film) throws DataAccessException {
 		filmRepository.save(film);
@@ -32,14 +38,6 @@ public class FilmService {
 		return filmRepository.findById(id);
 	}
 
-	/* @Transactional(rollbackFor = DuplicatedFilmNameException.class)
-	public void saveFilmAux(Film film) throws DataAccessException, DuplicatedFilmNameException {
-			Film otherFilm=film.getFilm().getPetwithIdDifferent(film.getTitle(), film.getId());
-            if (StringUtils.hasLength(pet.getName()) &&  (otherPet!= null && otherPet.getId()!=film.getId())) {            	
-            	throw new DuplicatedPetNameException();
-            }else
-                filmRepository.save(film);              
-	}*/ 
 
 
 }

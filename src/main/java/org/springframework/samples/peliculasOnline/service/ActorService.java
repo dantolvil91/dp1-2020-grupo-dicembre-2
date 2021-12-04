@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.peliculasOnline.model.Actor;
 import org.springframework.samples.peliculasOnline.model.Administrator;
-import org.springframework.samples.peliculasOnline.model.Rating;
+import org.springframework.samples.peliculasOnline.model.FilmClassification;
 import org.springframework.samples.peliculasOnline.repository.ActorRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
